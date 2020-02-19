@@ -16,5 +16,4 @@ The .txt displays the actual Crimson headline mapped to its corresponding
 "Harvard" to "bought," "of" to "bsf," and "on" to "bpm," which aren't very good
 associations, so I instead mapped Harvard to 🅱️arvard and didn't change the
 other two words.
-##lmk if u get errors or something? idk
-.
+## lmk if u get errors or something? idk

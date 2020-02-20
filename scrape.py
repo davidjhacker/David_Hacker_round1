@@ -29,10 +29,10 @@ for headline in headlines:
             f.write("🅱️arvard ")
         elif word == "of" or word == "on":
             f.write(word + " ")
+        elif word[0] == "b" or word[0] == "B":
+            f.write(bify(word) + " ")    
         elif len(dictlist) == 0:
             f.write(word + " ")
-        elif word[0] == "b" or word[0] == "B":
-            f.write(bify(word) + " ")
         else:
             is_good_word = False
             for dict in dictlist:

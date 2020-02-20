@@ -1,7 +1,11 @@
 import requests
 import json
-import emoji
+import sys
 from bs4 import BeautifulSoup
+if len(sys.argv) != 2:
+    sys.exit("Input number")
+if float(sys.argv[1]) < 1 or float(sys.argv[1]) > 10:
+    sys.exit("number must be between 1 and 10")
 def bify(word):
     b = list(word)
     b[0] = "🅱️"
@@ -27,7 +31,18 @@ for headline in headlines:
             f.write(word + " ")
         elif len(dictlist) == 0:
             f.write(word + " ")
+        elif word[0] == "b" or word[0] == "B":
+            f.write(bify(word) + " ")
         else:
-            f.write(bify(dictlist[0]["word"]) + " ")
+            is_good_word = False
+            for dict in dictlist:
+                if "score" not in dict.keys():
+                    pass
+                elif dict["score"]  > 100000 - (10000 * float(sys.argv[1])):
+                    is_good_word = True
+                    f.write(bify(dict["word"]) + " ")
+                    break
+            if is_good_word == False:
+                f.write(word + " ")
     f.write("\n")
 f.close()
